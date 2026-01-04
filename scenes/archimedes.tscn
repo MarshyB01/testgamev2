@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://d2lj5grva4v4w" path="res://assets/sprites/archimed.png" id="1_vpv5y"]
 [ext_resource type="Script" uid="uid://dpbet8sxar8v2" path="res://scripts/talkzone.gd" id="2_b6orl"]
-[ext_resource type="Texture2D" uid="uid://benenl4vkw0y0" path="res://assets/sprites/fruit.png" id="3_wakea"]
-[ext_resource type="Texture2D" uid="uid://cw5md41xsl508" path="res://assets/sprites/knight.png" id="4_55y71"]
+[ext_resource type="Texture2D" uid="uid://dsdx42a1bsjs4" path="res://imgs/material-uttxnfxk.png" id="3_wakea"]
+[ext_resource type="Texture2D" uid="uid://byukk3qdag6os" path="res://imgs/Method_of_exhaustion.jpg" id="4_55y71"]
 
 [sub_resource type="GDScript" id="GDScript_b0wga"]
 script/source = "extends Node2D

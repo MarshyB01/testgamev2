@@ -3972,13 +3972,13 @@ position = Vector2(1958, 97)
 position = Vector2(2105, 96)
 
 [node name="Coin2" parent="TileMaps/MidGround" instance=ExtResource("5_iywne")]
-position = Vector2(2266, 7)
+position = Vector2(2391, 56)
 
 [node name="Archimedes" parent="TileMaps/MidGround" instance=ExtResource("18_bhx41")]
 position = Vector2(2346, 64)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_iywne")]
-position = Vector2(2264, -17)
+position = Vector2(40, 58)
 script = ExtResource("3_p57ef")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
