@@ -18955,7 +18955,7 @@ position = Vector2(26920, -24)
 [node name="Player" parent="." instance=ExtResource("2_iywne")]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(7326, -32)
+position = Vector2(118, 30)
 script = ExtResource("3_p57ef")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
