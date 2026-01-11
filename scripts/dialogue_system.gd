@@ -12,14 +12,16 @@ var _active: bool = false
 func _ready() -> void:
 	hide()
 	set_process_unhandled_input(false)
-	portrait_anim.hide()
+	if portrait_anim != null:
+		portrait_anim.hide()
 
-# Now accepts: dialogue pages + animated portrait data
+# Dialogue pages + animated sprite data (frames/anim/speed/flip)
 func open_lines(
 	lines: PackedStringArray,
-	portrait_frames: SpriteFrames = null,
-	portrait_animation: StringName = &"default",
-	portrait_speed: float = 1.0
+	frames: SpriteFrames = null,
+	anim: StringName = &"idle",
+	speed: float = 1.0,
+	flip_h: bool = false
 ) -> void:
 	if lines.is_empty():
 		return
@@ -28,13 +30,16 @@ func open_lines(
 	_index = 0
 	_active = true
 
-	_set_portrait(portrait_frames, portrait_animation, portrait_speed)
+	_set_animated_sprite(frames, anim, speed, flip_h)
 	_show_current()
 
 	show()
 	set_process_unhandled_input(true)
 
-func _set_portrait(frames: SpriteFrames, anim: StringName, speed: float) -> void:
+func _set_animated_sprite(frames: SpriteFrames, anim: StringName, speed: float, flip_h: bool) -> void:
+	if portrait_anim == null:
+		return
+
 	if frames == null:
 		portrait_anim.hide()
 		portrait_anim.stop()
@@ -42,12 +47,18 @@ func _set_portrait(frames: SpriteFrames, anim: StringName, speed: float) -> void
 
 	portrait_anim.sprite_frames = frames
 	portrait_anim.speed_scale = speed
+	portrait_anim.flip_h = flip_h
 
-	# If the requested animation doesn't exist, fall back safely
+	# Fall back safely if the requested animation doesn't exist
 	if portrait_anim.sprite_frames.has_animation(anim):
 		portrait_anim.animation = anim
-	else:
+	elif portrait_anim.sprite_frames.has_animation(&"default"):
 		portrait_anim.animation = &"default"
+	else:
+		# If neither exists, just use the first available animation (prevents blank)
+		var names := portrait_anim.sprite_frames.get_animation_names()
+		if names.size() > 0:
+			portrait_anim.animation = names[0]
 
 	portrait_anim.show()
 	portrait_anim.play()
@@ -74,5 +85,8 @@ func close() -> void:
 	_active = false
 	hide()
 	set_process_unhandled_input(false)
-	portrait_anim.stop()
+
+	if portrait_anim != null:
+		portrait_anim.stop()
+
 	emit_signal("dialogue_finished")

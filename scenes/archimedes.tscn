@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cp4yfq22nh5y8"]
+[gd_scene load_steps=18 format=3 uid="uid://cp4yfq22nh5y8"]
 
 [ext_resource type="Texture2D" uid="uid://d2lj5grva4v4w" path="res://assets/sprites/archimed.png" id="1_vpv5y"]
 [ext_resource type="Script" uid="uid://dpbet8sxar8v2" path="res://scripts/talkzone.gd" id="2_b6orl"]
-[ext_resource type="Texture2D" uid="uid://dsdx42a1bsjs4" path="res://imgs/material-uttxnfxk.png" id="3_wakea"]
+[ext_resource type="Texture2D" uid="uid://clxbed7cihp4m" path="res://imgs/arc2.jpg" id="3_55y71"]
 [ext_resource type="Texture2D" uid="uid://byukk3qdag6os" path="res://imgs/Method_of_exhaustion.jpg" id="4_55y71"]
+[ext_resource type="Texture2D" uid="uid://bp6ibhsmyk5n" path="res://imgs/arc1.jpg" id="4_xnlly"]
 
 [sub_resource type="GDScript" id="GDScript_b0wga"]
 script/source = "extends Node2D
@@ -95,7 +96,8 @@ flip_h = true
 [node name="Talkzone" type="Area2D" parent="AnimatedSprite2D"]
 collision_mask = 2
 script = ExtResource("2_b6orl")
-image_pages = Array[Texture2D]([ExtResource("3_wakea"), ExtResource("4_55y71")])
+npc_anim_path = NodePath("..")
+image_pages = Array[Texture2D]([ExtResource("3_55y71"), ExtResource("4_xnlly"), ExtResource("4_55y71")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Talkzone"]
 position = Vector2(-2.5, -46.5)

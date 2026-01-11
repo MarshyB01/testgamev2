@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://ypw702finfoq"]
+
+[ext_resource type="Texture2D" uid="uid://drk07mxamgvwd" path="res://assets/sprites/eul.png" id="1_2xevx"]
+[ext_resource type="Script" uid="uid://cproh0g2b0f3s" path="res://scripts/euler_talkzone.gd" id="2_2xevx"]
+
+[sub_resource type="GDScript" id="GDScript_b0wga"]
+script/source = "extends Node2D
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggog2"]
+atlas = ExtResource("1_2xevx")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d588o"]
+atlas = ExtResource("1_2xevx")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xdf3"]
+atlas = ExtResource("1_2xevx")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0yv8"]
+atlas = ExtResource("1_2xevx")
+region = Rect2(288, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn133"]
+atlas = ExtResource("1_2xevx")
+region = Rect2(384, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtmyx"]
+atlas = ExtResource("1_2xevx")
+region = Rect2(480, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63byh"]
+atlas = ExtResource("1_2xevx")
+region = Rect2(576, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75vtr"]
+atlas = ExtResource("1_2xevx")
+region = Rect2(672, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bnag"]
+atlas = ExtResource("1_2xevx")
+region = Rect2(768, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hctsb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggog2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d588o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xdf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0yv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn133")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtmyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63byh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75vtr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bnag")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wakea"]
+size = Vector2(27, 109)
+
+[node name="Euler" type="Node2D"]
+script = SubResource("GDScript_b0wga")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -7)
+sprite_frames = SubResource("SpriteFrames_hctsb")
+autoplay = "default"
+frame_progress = 0.873676
+flip_h = true
+
+[node name="EulerTalkzone" type="Area2D" parent="AnimatedSprite2D"]
+collision_mask = 2
+script = ExtResource("2_2xevx")
+npc_anim_path = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/EulerTalkzone"]
+position = Vector2(-2.5, -46.5)
+shape = SubResource("RectangleShape2D_wakea")

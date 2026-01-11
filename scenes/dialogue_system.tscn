@@ -34,9 +34,9 @@ script = ExtResource("1_3421h")
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = -144.0
-offset_top = -28.0
+offset_top = -35.0
 offset_right = 144.0
-offset_bottom = 28.0
+offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3421h")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -76,9 +76,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 91.99999
-offset_top = 21.0
+offset_top = 31.0
 offset_right = 209.0
-offset_bottom = 44.0
+offset_bottom = 54.0
 scale = Vector2(0.7, 0.7)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sofqc")

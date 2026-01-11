@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://hgsmqni0ojra"]
+[gd_scene load_steps=21 format=3 uid="uid://hgsmqni0ojra"]
 
+[ext_resource type="Script" uid="uid://xswso7yryavl" path="res://scripts/hud.gd" id="1_047uy"]
 [ext_resource type="FontFile" uid="uid://d07voj053xhw" path="res://assets/fonts/PixelOperator8.ttf" id="2_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://b2oxkmtl8457r" path="res://assets/sprites/coin.png" id="3_5ysmq"]
 [ext_resource type="PackedScene" uid="uid://cmflo5eimbf4p" path="res://scenes/dialogue_system.tscn" id="3_6fi6k"]
+[ext_resource type="FontFile" uid="uid://blgng86mqn7uj" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_uo2fv"]
 [ext_resource type="Script" uid="uid://kyfne05tu5x0" path="res://scripts/image_viewer.gd" id="4_6fi6k"]
 
 [sub_resource type="GDScript" id="GDScript_uo2fv"]
@@ -102,6 +104,7 @@ animations = [{
 }]
 
 [node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_047uy")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -124,7 +127,7 @@ offset_bottom = 52.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_5ysmq")
 theme_override_font_sizes/font_size = 16
-text = "0 Shards"
+text = "0 Coins"
 
 [node name="CoinIcon" type="AnimatedSprite2D" parent="UI"]
 position = Vector2(155, 44)
@@ -174,3 +177,15 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
+
+[node name="BabyModeToggle" type="CheckButton" parent="."]
+offset_left = 14.0
+offset_top = 15.0
+offset_right = 269.0
+offset_bottom = 47.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_uo2fv")
+theme_override_font_sizes/font_size = 24
+text = "Baby Mode"
+
+[connection signal="toggled" from="BabyModeToggle" to="." method="_on_baby_mode_toggle_toggled"]
